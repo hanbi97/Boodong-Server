@@ -4,6 +4,7 @@ import com.real_estate.demo.domain.enums.SaleStatus;
 import com.real_estate.demo.domain.enums.Type;
 import com.real_estate.demo.dto.SaleSaveRequest;
 import com.real_estate.demo.service.SalesService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -17,9 +18,15 @@ import java.time.format.DateTimeFormatter;
 
 @EnableJpaAuditing
 @SpringBootApplication
+@Slf4j
 public class DemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
+        log.error("error");
+        log.warn("warn");
+        log.info("info");
+        log.trace("trace");
+        log.debug("debug");
     }
 //
 //    @Bean
