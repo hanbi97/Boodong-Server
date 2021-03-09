@@ -3,5 +3,7 @@ BE: hanbi97 FE: JuHyeon-Lee
 
 api: https://documenter.getpostman.com/view/4405431/Tz5jeKsq
 
-상태 변경 기능 수정 필요
+까먹지말자 
+![image](https://user-images.githubusercontent.com/36736904/110448530-9edbf680-8104-11eb-8766-7ed778234a17.png)
+
 
