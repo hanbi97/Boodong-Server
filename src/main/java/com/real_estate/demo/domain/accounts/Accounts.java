@@ -31,7 +31,7 @@ public class Accounts extends BaseEntity {
 
    @Column(nullable = false)
    private String password;
-   
+
    @Enumerated(EnumType.STRING)
    @Column(nullable = false)
    private Roles role;
@@ -40,9 +40,10 @@ public class Accounts extends BaseEntity {
    private List<Products> products = new ArrayList<>();
 
    @Builder
-   public Accounts(String email, String name, String password){
+   public Accounts(String email, String name, String password, Roles role){
       this.email = email;
       this.name = name;
       this.password = password;
+      this.role=role;
    }
 }

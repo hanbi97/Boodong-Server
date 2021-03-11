@@ -23,9 +23,6 @@ public class SalesApi {
             @ModelAttribute SearchRequest searchRequest){
         return salesService.findByParams(searchRequest);
     }
-//    /**매물정보*/
-//    private Double deposit;
-//    private Double rent; //default
 
     //상세 정보 가져오기
     @GetMapping("/{id}")
