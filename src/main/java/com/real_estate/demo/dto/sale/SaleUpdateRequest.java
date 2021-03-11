@@ -1,9 +1,8 @@
-package com.real_estate.demo.dto;
+package com.real_estate.demo.dto.sale;
 
 import com.real_estate.demo.domain.enums.SaleStatus;
 import com.real_estate.demo.domain.enums.Type;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

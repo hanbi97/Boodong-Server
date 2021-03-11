@@ -1,9 +1,10 @@
-package com.real_estate.demo.dto;
+package com.real_estate.demo.dto.sale;
 
 import com.real_estate.demo.domain.enums.SaleStatus;
+import com.real_estate.demo.dto.BaseResponse;
 import lombok.Builder;
 
-public class SaleStatusChangeResponse extends BaseResponse{
+public class SaleStatusChangeResponse extends BaseResponse {
     private SaleStatus saleStatus;
 
     @Builder

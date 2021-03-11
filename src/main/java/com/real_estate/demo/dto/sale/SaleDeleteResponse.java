@@ -1,5 +1,6 @@
-package com.real_estate.demo.dto;
+package com.real_estate.demo.dto.sale;
 
+import com.real_estate.demo.dto.BaseResponse;
 import lombok.Builder;
 
 public class SaleDeleteResponse extends BaseResponse {

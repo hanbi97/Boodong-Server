@@ -1,4 +1,4 @@
-package com.real_estate.demo.dto;
+package com.real_estate.demo.dto.sale;
 
 import com.real_estate.demo.domain.enums.SaleStatus;
 import com.real_estate.demo.domain.enums.Type;

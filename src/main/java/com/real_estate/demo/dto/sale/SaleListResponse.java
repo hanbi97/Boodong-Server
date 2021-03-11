@@ -1,15 +1,12 @@
-package com.real_estate.demo.dto;
+package com.real_estate.demo.dto.sale;
 
 import com.real_estate.demo.domain.enums.SaleStatus;
 import com.real_estate.demo.domain.enums.Type;
-import com.real_estate.demo.domain.products.Products;
 import com.real_estate.demo.domain.sales.Sales;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @Getter

@@ -1,4 +1,4 @@
-package com.real_estate.demo.dto;
+package com.real_estate.demo.dto.sale;
 
 import com.real_estate.demo.domain.accounts.Accounts;
 import com.real_estate.demo.domain.customers.Customers;
@@ -7,14 +7,10 @@ import com.real_estate.demo.domain.enums.Type;
 import com.real_estate.demo.domain.products.Products;
 import com.real_estate.demo.domain.sales.Sales;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
