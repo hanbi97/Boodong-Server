@@ -1,6 +1,7 @@
 package com.real_estate.demo.domain.accounts;
 
 import com.real_estate.demo.domain.BaseEntity;
+import com.real_estate.demo.domain.enums.Roles;
 import com.real_estate.demo.domain.products.Products;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,6 +31,10 @@ public class Accounts extends BaseEntity {
 
    @Column(nullable = false)
    private String password;
+   
+   @Enumerated(EnumType.STRING)
+   @Column(nullable = false)
+   private Roles role;
 
    @OneToMany(mappedBy = "account",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
    private List<Products> products = new ArrayList<>();
