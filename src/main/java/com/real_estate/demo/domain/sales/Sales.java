@@ -2,19 +2,14 @@ package com.real_estate.demo.domain.sales;
 
 import com.real_estate.demo.domain.BaseEntity;
 import com.real_estate.demo.domain.enums.SaleStatus;
-import com.real_estate.demo.domain.enums.Status;
 import com.real_estate.demo.domain.enums.Type;
 import com.real_estate.demo.domain.products.Products;
-import com.real_estate.demo.dto.SaleUpdateRequest;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor

@@ -4,7 +4,6 @@ import com.real_estate.demo.domain.BaseEntity;
 import com.real_estate.demo.domain.accounts.Accounts;
 import com.real_estate.demo.domain.customers.Customers;
 import com.real_estate.demo.domain.sales.Sales;
-import com.real_estate.demo.dto.SaleUpdateRequest;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

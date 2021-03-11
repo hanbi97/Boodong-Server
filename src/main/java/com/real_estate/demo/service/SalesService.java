@@ -9,7 +9,7 @@ import com.real_estate.demo.domain.products.Products;
 import com.real_estate.demo.domain.products.ProductsRepository;
 import com.real_estate.demo.domain.sales.Sales;
 import com.real_estate.demo.domain.sales.SalesRepository;
-import com.real_estate.demo.dto.*;
+import com.real_estate.demo.dto.sale.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

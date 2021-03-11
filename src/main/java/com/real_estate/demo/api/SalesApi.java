@@ -2,18 +2,14 @@ package com.real_estate.demo.api;
 
 import javax.validation.Valid;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.real_estate.demo.domain.enums.SaleStatus;
-import com.real_estate.demo.domain.enums.Type;
-import com.real_estate.demo.dto.*;
+import com.real_estate.demo.dto.sale.*;
 import com.real_estate.demo.service.SalesService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor

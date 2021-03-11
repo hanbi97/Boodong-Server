@@ -1,18 +1,13 @@
 package com.real_estate.demo.domain.sales;
 
 import com.querydsl.core.BooleanBuilder;
-import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.real_estate.demo.domain.enums.SaleStatus;
-import com.real_estate.demo.domain.enums.Type;
-import com.real_estate.demo.dto.SearchRequest;
+import com.real_estate.demo.dto.sale.SearchRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.util.StringUtils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Map;
 
 import static com.real_estate.demo.domain.sales.QSales.sales;
 import static org.springframework.util.StringUtils.hasLength;
