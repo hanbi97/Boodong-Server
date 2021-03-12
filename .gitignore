@@ -38,3 +38,6 @@ generated
 
 src/test/java/com/real_estate/demo/domain/
 build
+
+application-mail.yml
+application.yml
