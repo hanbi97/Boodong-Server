@@ -16,7 +16,6 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 
 @Configuration
 @RequiredArgsConstructor
-@EnableJpaAuditing
 @EnableWebSecurity //Spring Security 활성화
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean //Security에서 제공하는 비밀번호 암호화 객체
@@ -41,12 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)//rest: stateless, cookie에 세션 저장 x
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/login/**", "/h2-console/**", "/api/v1/auth/users", "/api/v1/auth/login*", "/api/v1/email/userVerification/**", "/api/v1/products/**", "/api/v1/fund/**", "/api/v1/fund/products/*", "/api/v1/fund/carts/*").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .logout()
-                .logoutSuccessUrl("/") // 로그아웃 성공시 home으로
-                .invalidateHttpSession(true);
+                .antMatchers("/", "/h2-console/**", "/api/account/signup", "/api/account/login", "/api/email/userVerification/**").permitAll();
 
     }
 }

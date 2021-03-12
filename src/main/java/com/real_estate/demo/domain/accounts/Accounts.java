@@ -46,4 +46,8 @@ public class Accounts extends BaseEntity {
       this.password = password;
       this.role=role;
    }
+
+   public void changeRole(Roles role){
+      this.role = role;
+   }
 }

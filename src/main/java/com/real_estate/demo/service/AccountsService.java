@@ -30,6 +30,10 @@ public class AccountsService {
                 .password(accountDto.getPassword()).build()).getId();
     }
 
+    public void changeRole(Accounts account){
+        account.changeRole(Roles.USER);
+    }
+
     //이미 있는 회원인지 체크
     private void duplicateAccount(String email){
         //에러 체크하는거 if else 말고 try catch로 했을때 커스텀 문구 설정 어케해야될지 모르겠음
@@ -39,6 +43,6 @@ public class AccountsService {
 
     //회원 찾기
     public Accounts findOneById(Long id){
-        return accountsRepository.findOne(id).orElseThrow(()->new IllegalArgumentException("존재하지 않는 회원번호입니다."));
+        return accountsRepository.findById(id).orElseThrow(()->new IllegalArgumentException("존재하지 않는 회원번호입니다."));
     }
 }

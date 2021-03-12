@@ -11,7 +11,7 @@ public class AccountSaveResponse extends BaseResponse {
     String email;
 
     @Builder
-    AccountSaveResponse(Boolean success, String message,String email){
+    public AccountSaveResponse(Boolean success, String message,String email){
         super(success, message);
         this.email=email;
     }
