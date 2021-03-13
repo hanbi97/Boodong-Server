@@ -1,0 +1,22 @@
+spring:
+  profiles.include: real-db
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  session:
+    store-type: jdbc
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+  file:
+    name: ./log/real
+
+base-url: http://ec2-13-209-216-146.ap-northeast-2.compute.amazonaws.com:8080/api/email/userVerification
