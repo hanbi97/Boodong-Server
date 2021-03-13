@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing
 @SpringBootApplication
-@PropertySource("classpath:application.yml")
 @Slf4j
 public class DemoApplication {
     public static void main(String[] args) { SpringApplication.run(DemoApplication.class,"--debug");}

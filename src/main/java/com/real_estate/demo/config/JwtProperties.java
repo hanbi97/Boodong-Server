@@ -15,7 +15,7 @@ public class JwtProperties {
     public JwtProperties(@Value("${secret-key}") String secret, @Value("${expiration-time}") int time, @Value("${token-prefix}") String prefix){
         SECRET = secret;
         EXPIRATION_TIME = time;
-        TOKEN_PREFIX = prefix;
+        TOKEN_PREFIX = prefix+' ';
         HEADER_STRING = "Authorization";
     }
 }
