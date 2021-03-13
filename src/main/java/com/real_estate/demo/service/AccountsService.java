@@ -32,6 +32,7 @@ public class AccountsService {
 
     public void changeRole(Accounts account){
         account.changeRole(Roles.USER);
+        accountsRepository.save(account);
     }
 
     //이미 있는 회원인지 체크
