@@ -9,6 +9,10 @@ api: https://documenter.getpostman.com/view/4405431/Tz5jeKsq
 다 만들고 나면 첨부터 쓸 예정
 
 
+* 영속성 유지
+* 인증 후 redirect
+
+
 
 까먹지말자 
 
