@@ -40,6 +40,4 @@ src/test/java/com/real_estate/demo/domain/
 build
 log
 
-application-mail.yml
 application.yml
-**/src/main/java/com/real_estate/demo/config/JwtProperties.java

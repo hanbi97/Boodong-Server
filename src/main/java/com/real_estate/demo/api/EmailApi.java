@@ -3,6 +3,7 @@ package com.real_estate.demo.api;
 
 import com.real_estate.demo.domain.accounts.Accounts;
 import com.real_estate.demo.domain.accounts.AccountsRepository;
+import com.real_estate.demo.domain.enums.Roles;
 import com.real_estate.demo.dto.email.EmailResponse;
 import com.real_estate.demo.service.AccountsService;
 import com.real_estate.demo.service.EmailService;
@@ -32,16 +33,20 @@ public class EmailApi {
         try {
             Accounts account = accountsService.findOneById(id);
             accountsService.changeRole(account);
-            log.info(account.getRole().name());
-            msg="USER 권한 부여 성공";
-            email=account.getEmail();
-
+            if(account.getRole()== Roles.USER){
+                msg="USER 권한 부여 성공";
+                email=account.getEmail();
+            }
+            else throw new IllegalArgumentException();
         }catch(NullPointerException exception){
             exception.printStackTrace();
             success=false;
             msg = "존재하지 않는 USER임";
+        }catch(IllegalArgumentException exception){
+            exception.printStackTrace();
+            success=false;
+            msg = "권한 부여 실패";
         }
-
         return EmailResponse.builder()
                 .success(success)
                 .message(msg)
