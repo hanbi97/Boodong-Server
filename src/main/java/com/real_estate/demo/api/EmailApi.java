@@ -32,6 +32,7 @@ public class EmailApi {
         try {
             Accounts account = accountsService.findOneById(id);
             accountsService.changeRole(account);
+            log.info(account.getRole().name());
             msg="USER 권한 부여 성공";
             email=account.getEmail();
 
@@ -47,5 +48,4 @@ public class EmailApi {
                 .email(email)
                 .build();
     }
-
 }
