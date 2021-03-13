@@ -36,10 +36,9 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         } catch(IOException e){
             log.error("Failed json parser: {}", request, e);
         }
-
         //Login Token, Spring Security가 이 사용자가 등록된 사용자인지 확인하기 위한 것
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-                credentials.getEmail(),
+                credentials.getUsername(),
                 credentials.getPassword(),
                 new ArrayList<>());
 

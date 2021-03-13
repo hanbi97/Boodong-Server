@@ -35,7 +35,6 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
     //얻은 JWT가 제대로 된건지 확인
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
-        log.info("authorization filter");
         // Read the Authorization header in JWT
         String header = request.getHeader(JwtProperties.HEADER_STRING);
 
