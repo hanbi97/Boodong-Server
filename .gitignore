@@ -40,4 +40,5 @@ src/test/java/com/real_estate/demo/domain/
 build
 log
 
-application.yml
+application-email.yml
+application-jwt.yml

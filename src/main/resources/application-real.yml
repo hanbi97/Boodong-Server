@@ -1,5 +1,5 @@
 spring:
-  profiles.include: real-db
+  profiles.include: jwt,email,real-db
   jpa:
     properties:
       hibernate:
