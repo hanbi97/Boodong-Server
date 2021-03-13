@@ -1,8 +1,5 @@
 package com.real_estate.demo.api;
 
-import com.real_estate.demo.domain.accounts.Accounts;
-import com.real_estate.demo.domain.enums.Roles;
-import com.real_estate.demo.dto.account.AccountDto;
 import com.real_estate.demo.dto.account.AccountSaveRequest;
 import com.real_estate.demo.dto.account.AccountSaveResponse;
 import com.real_estate.demo.dto.email.EmailRequest;
@@ -29,8 +26,7 @@ public class AccountApi {
 
     @PostMapping("/signup")
     public AccountSaveResponse saveAccount(@RequestBody @Valid AccountSaveRequest accountSaveRequest) throws MessagingException, UnsupportedEncodingException {
-        AccountDto accountDto = new AccountDto(accountSaveRequest.getEmail(),accountSaveRequest.getPassword(),accountSaveRequest.getName());
-        Long id = accountsService.save(accountDto);
+        Long id = accountsService.save(accountSaveRequest);
 
         //이메일 인증 링크 발송
         EmailRequest emailRequest = emailService.createUserAuthenticationMail(accountSaveRequest.getEmail(), accountSaveRequest.getName(),id);

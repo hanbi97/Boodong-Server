@@ -3,7 +3,7 @@ package com.real_estate.demo.service;
 import com.real_estate.demo.domain.accounts.Accounts;
 import com.real_estate.demo.domain.accounts.AccountsRepository;
 import com.real_estate.demo.domain.enums.Roles;
-import com.real_estate.demo.dto.account.AccountDto;
+import com.real_estate.demo.dto.account.AccountSaveRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,18 +16,18 @@ public class AccountsService {
     private final PasswordEncoder passwordEncoder;
 
     //회원 가입
-    public Long save(AccountDto accountDto){
-        duplicateAccount(accountDto.getEmail());
+    public Long save(AccountSaveRequest accountSaveRequest){
+        duplicateAccount(accountSaveRequest.getEmail());
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-        accountDto.setPassword(encoder.encode(accountDto.getPassword()));
+        accountSaveRequest.setPassword(encoder.encode(accountSaveRequest.getPassword()));
 
         return accountsRepository.save(
                 Accounts.builder()
-                .email(accountDto.getEmail())
-                .name(accountDto.getName())
+                .email(accountSaveRequest.getEmail())
+                .name(accountSaveRequest.getName())
                 .role(Roles.NOT_PERMITTED)
-                .password(accountDto.getPassword()).build()).getId();
+                .password(accountSaveRequest.getPassword()).build()).getId();
     }
 
     public void changeRole(Accounts account){

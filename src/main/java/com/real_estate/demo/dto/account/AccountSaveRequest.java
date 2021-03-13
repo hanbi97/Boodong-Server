@@ -12,4 +12,8 @@ public class AccountSaveRequest {
     String email;
     String name;
     String password;
+
+    public void setPassword(String encode){
+        this.password = encode;
+    }
 }
