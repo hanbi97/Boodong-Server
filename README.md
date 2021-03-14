@@ -1,6 +1,6 @@
 # 부동산 매물 관리 프로그램 - BE
 
-👩‍💻 BE <a href="https://github.com/hanbi97/Boodong-Server">JuHyeon-Lee</a> <br>
+👩‍💻 BE <a href="https://github.com/hanbi97/Boodong-Server">Hanbi-Kim</a> <br>
 👨‍💻 FE <a href="https://github.com/JuHyeon-Lee/Boodong-Client">JuHyeon-Lee</a>
 
 ## About
