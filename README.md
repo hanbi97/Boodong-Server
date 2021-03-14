@@ -49,11 +49,11 @@ PostMan </a> 👈 click
 
 
 ## To Do
-+[ ] 영속성 유지
-+[ ] 사용자별 매물 확인 가능하도록(account pk, foreign key 이용)
-+[ ] 실시간 통신 (socket, http polling의 단점, http는 왜 application layer 에서 하는지 고민해볼것)
-+[ ] 일정관리 API(손님예약 관리)
-+[ ] 베타테스트 하고 수정사항 반영
++ [ ] 영속성 유지
++ [ ] 사용자별 매물 확인 가능하도록(account pk, foreign key 이용)
++ [ ] 실시간 통신 (socket, http polling의 단점, http는 왜 application layer 에서 하는지 고민해볼것)
++ [ ] 일정관리 API(손님예약 관리)
++ [ ] 베타테스트 하고 수정사항 반영
 
 
 
