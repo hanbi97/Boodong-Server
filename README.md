@@ -37,6 +37,12 @@
 FE - React <br>
 BE - Spring Boot, MariaDB, Spring Data JPA, Spring Security(JWT), AWS
 
+## Functions
+1. 회원가입 / 로그인
+2. 매물, 손님정보 등록
+3. 매물 검색
+4. 매물 수정, 상태 변경
+5. 일정관리(v2)
 
 ## API
 <a href="https://documenter.getpostman.com/view/4405431/Tz5jeKsq">
