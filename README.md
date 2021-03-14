@@ -4,7 +4,7 @@
 👨‍💻 FE <a href="https://github.com/JuHyeon-Lee/Boodong-Client">JuHyeon-Lee</a>
 
 ## About
-📌 공앤중개사의 주 업무: 매물관리 + 각 사이트 양식에 맞춰 매물 광고 올리기 + 손님 예약관리 <br>
+📌 공인중개사의 주 업무: 매물관리 + 각 사이트 양식에 맞춰 매물 광고 올리기 + 손님 예약관리 <br>
 📌 매물 정보와 손님 정보를 한번에 등록 <br>
 📌 쉽고 빠른 매물 검색 가능
 ```
