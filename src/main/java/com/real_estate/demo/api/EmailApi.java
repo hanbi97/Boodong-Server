@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -26,7 +29,7 @@ public class EmailApi {
 
     //사용자가 인증링크 누르면 확인
     @GetMapping("/userVerification")
-    public EmailResponse acceptVerification(@RequestParam("id") Long id, @RequestParam("key") String key){
+    public void acceptVerification(@RequestParam("id") Long id, @RequestParam("key") String key, HttpServletResponse response) throws IOException {
         boolean success=true;
         String msg="";
         String email="";
@@ -46,11 +49,7 @@ public class EmailApi {
             exception.printStackTrace();
             success=false;
             msg = "권한 부여 실패";
-        }
-        return EmailResponse.builder()
-                .success(success)
-                .message(msg)
-                .email(email)
-                .build();
+        }//redirect
+        response.sendRedirect("/");
     }
 }
