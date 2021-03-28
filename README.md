@@ -42,7 +42,8 @@ BE - Spring Boot, MariaDB, Spring Data JPA, Spring Security(JWT), AWS
 2. 매물, 손님정보 등록
 3. 매물 검색
 4. 매물 수정, 상태 변경
-5. 일정관리(v2)
+5. 손님 관리
+일정관리(v2)
 
 ## API
 <a href="https://documenter.getpostman.com/view/4405431/Tz5jeKsq">
