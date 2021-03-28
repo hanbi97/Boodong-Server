@@ -1,6 +1,7 @@
 package com.real_estate.demo.domain.customers;
 
 import com.real_estate.demo.domain.BaseEntity;
+import com.real_estate.demo.domain.accounts.Accounts;
 import com.real_estate.demo.domain.products.Products;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,11 +31,16 @@ public class Customers extends BaseEntity {
     @Column(nullable = false)
     private String phone;
 
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "account_id")
+    private Accounts account; //fk
+
     @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Products> products = new ArrayList<>();
 
     @Builder
-    public Customers(String name, String information, String phone ) {
+    public Customers(String name, String information, String phone, Accounts account ) {
+        this.account=account;
         this.name=name;
         this.information=information;
         this.phone=phone;

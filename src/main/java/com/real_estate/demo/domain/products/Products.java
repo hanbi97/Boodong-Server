@@ -60,6 +60,7 @@ public class Products extends BaseEntity {
     public Products(String name, Integer dong, Integer hosu, Integer pyung,
                     String direction, Double adExpenses, String option, String address,
                     Accounts account, Customers customer) {
+        this.account = account;
         this.key = name+dong+hosu;
         this.name = name;
         this.dong = dong;

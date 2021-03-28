@@ -1,5 +1,7 @@
 package com.real_estate.demo.service;
 
+import com.auth0.jwt.JWT;
+import com.real_estate.demo.config.JwtProperties;
 import com.real_estate.demo.domain.accounts.Accounts;
 import com.real_estate.demo.domain.accounts.AccountsRepository;
 import com.real_estate.demo.domain.enums.Roles;
@@ -8,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 
 @RequiredArgsConstructor
 @Service
@@ -45,5 +49,13 @@ public class AccountsService {
     //회원 찾기
     public Accounts findOneById(Long id){
         return accountsRepository.findById(id).orElseThrow(()->new IllegalArgumentException("존재하지 않는 회원번호입니다."));
+    }
+
+    public Accounts findAccount(String token){
+        String username= JWT.require(HMAC512(JwtProperties.SECRET.getBytes()))
+                .build()
+                .verify(token)
+                .getSubject();
+        return accountsRepository.findByEmail(username);
     }
 }

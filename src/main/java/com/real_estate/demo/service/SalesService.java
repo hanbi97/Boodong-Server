@@ -1,6 +1,7 @@
 package com.real_estate.demo.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.real_estate.demo.domain.accounts.Accounts;
 import com.real_estate.demo.domain.customers.Customers;
 import com.real_estate.demo.domain.customers.CustomersRepository;
 import com.real_estate.demo.domain.enums.SaleStatus;
@@ -26,7 +27,7 @@ public class SalesService {
     private final SalesRepository salesRepository;
 
     @Transactional(readOnly = true)
-    public List<SaleListResponse> findByParams(SearchRequest searchRequest){
+    public List<SaleListResponse> findByParams(SearchRequest searchRequest, Accounts account){
         ObjectMapper objectMapper = new ObjectMapper();
         Map<String,Object> tmp = objectMapper.convertValue(searchRequest,Map.class);
         boolean check=false;
@@ -40,7 +41,7 @@ public class SalesService {
 
         List<SaleListResponse> res = new ArrayList<>();
         for(Sales s : sales){
-            if(s.getStatus()==Status.NORMAL){
+            if(s.getStatus()==Status.NORMAL && s.getProduct().getAccount().equals(account)){
                 res.add(new SaleListResponse(s));
             }
         }
@@ -48,10 +49,12 @@ public class SalesService {
     }
 
     @Transactional(readOnly = true)
-    public SaleResponse findById(Long saleId){
+    public SaleResponse findById(Long saleId, Accounts account){
         Sales s = salesRepository.findById(saleId)
                 .orElseThrow(()-> new IllegalArgumentException("해당 매물은 없습니다. id="+saleId));
         if(s.getStatus()==Status.DELETE)
+            throw new IllegalArgumentException("해당 매물은 없습니다. id="+saleId);
+        if(!s.getProduct().getAccount().equals(account))
             throw new IllegalArgumentException("해당 매물은 없습니다. id="+saleId);
         return SaleResponse.builder()
                 .registeredDate(s.getRegisteredDate())
@@ -77,11 +80,11 @@ public class SalesService {
                 .build();
     }
 
-    public SaleSaveResponse save(SaleSaveRequest saleSaveRequest){
+    public SaleSaveResponse save(SaleSaveRequest saleSaveRequest, Accounts account){
         //손님 없으면 저장
         Customers c = customersRepository.findByPhone(saleSaveRequest.getPhone());
         if(c==null){
-            c= saleSaveRequest.toCustomer();
+            c= saleSaveRequest.toCustomer(account);
             customersRepository.save(c);
         }
 
@@ -89,7 +92,7 @@ public class SalesService {
         String productKey = saleSaveRequest.getName()+saleSaveRequest.getDong()+saleSaveRequest.getHosu();
         Products product = productsRepository.findByKey(productKey);
         if(product==null){
-            product = saleSaveRequest.toProduct(c,null);
+            product = saleSaveRequest.toProduct(c,account);
             productsRepository.save(product);
         }
 

@@ -45,6 +45,7 @@ public class SaleSaveRequest {
 
     public Products toProduct(Customers customer, Accounts account){
         return Products.builder()
+                .account(account)
                 .name(name)
                 .dong(dong)
                 .hosu(hosu)
@@ -73,8 +74,9 @@ public class SaleSaveRequest {
                 .build();
     }
 
-    public Customers toCustomer(){
+    public Customers toCustomer(Accounts account){
         return Customers.builder()
+                .account(account)
                 .name(customerName)
                 .information(information)
                 .phone(phone)
