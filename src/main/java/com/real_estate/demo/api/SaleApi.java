@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 @RequestMapping("api/sales")
-public class SalesApi {
+public class SaleApi {
     private final SalesService salesService;
 
     //전체 정보 가져오기
