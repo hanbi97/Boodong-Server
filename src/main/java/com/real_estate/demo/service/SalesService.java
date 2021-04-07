@@ -29,10 +29,10 @@ public class SalesService {
     @Transactional(readOnly = true)
     public List<SaleListResponse> findByParams(SearchRequest searchRequest, Accounts account){
         ObjectMapper objectMapper = new ObjectMapper();
-        Map<String,Object> tmp = objectMapper.convertValue(searchRequest,Map.class);
+        Map tmp = objectMapper.convertValue(searchRequest,Map.class);
         boolean check=false;
-        for (Map.Entry<String,Object> entry : tmp.entrySet()){
-            if(entry.getValue()!=null){
+        for (Object entry : tmp.entrySet()){
+            if(entry!=null){
                 check=true;
                 break;
             }
