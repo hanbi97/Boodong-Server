@@ -27,7 +27,8 @@ public class SaleApi {
     private final AccountsService accountsService;
 
     //전체 정보 가져오기
-    @GetMapping public List<SaleListResponse> getSales(
+    @GetMapping
+    public List<SaleListResponse> getSales(
             @ModelAttribute SearchRequest searchRequest, HttpServletRequest request){
         String token = request.getHeader(JwtProperties.HEADER_STRING)
                 .replace(JwtProperties.TOKEN_PREFIX, "");

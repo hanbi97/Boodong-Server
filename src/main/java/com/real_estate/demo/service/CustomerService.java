@@ -23,8 +23,9 @@ public class CustomerService {
         List<CustomerListResponse> customerListResponses = new ArrayList<>();
         List<Customers> customers = customersRepository.findAll();
         for(Customers c: customers){
-            if(c.getStatus()== Status.DELETE || c.getAccount()!=account) continue;
-            customerListResponses.add(new CustomerListResponse(c));
+            if(c.getStatus()== Status.NORMAL || c.getAccount()==account) {
+                customerListResponses.add(new CustomerListResponse(c));
+            }
         }
         return customerListResponses;
     }
