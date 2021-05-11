@@ -97,13 +97,12 @@ public class SalesService {
         }
 
         Sales sale = saleSaveRequest.toSale(product);
-        String saleKey= product.getKey()+sale.getType();
         salesRepository.save(sale);
 
         return SaleSaveResponse.builder()
                 .success(true)
                 .message("저장되었습니다.")
-                .saleKey(saleKey)
+                .saleKey(product.getKey()+sale.getType())
                 .build();
     }
 
