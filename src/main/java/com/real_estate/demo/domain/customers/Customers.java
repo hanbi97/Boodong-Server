@@ -2,6 +2,8 @@ package com.real_estate.demo.domain.customers;
 
 import com.real_estate.demo.domain.BaseEntity;
 import com.real_estate.demo.domain.accounts.Accounts;
+import com.real_estate.demo.domain.enums.SaleStatus;
+import com.real_estate.demo.domain.enums.Type;
 import com.real_estate.demo.domain.products.Products;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +24,9 @@ public class Customers extends BaseEntity {
     @Column(name = "customer_id")
     private Long id;
 
+    @Column(name="sale_key", nullable = false)
+    private String key;
+
     @Column(nullable = false)
     private String name;
 
@@ -41,6 +46,14 @@ public class Customers extends BaseEntity {
     @Builder
     public Customers(String name, String information, String phone, Accounts account ) {
         this.account=account;
+        this.key = name+phone;
+        this.name=name;
+        this.information=information;
+        this.phone=phone;
+    }
+
+    /**business method*/
+    public void update(String name, String information, String phone) {
         this.name=name;
         this.information=information;
         this.phone=phone;
