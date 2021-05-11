@@ -4,6 +4,8 @@ import com.real_estate.demo.domain.accounts.AccountsRepository;
 import com.real_estate.demo.domain.enums.Roles;
 import com.real_estate.demo.filter.JwtAuthenticationFilter;
 import com.real_estate.demo.filter.JwtAuthorizationFilter;
+import com.real_estate.demo.handler.CustomAuthenticationFailureHandler;
+import com.real_estate.demo.handler.CustomAuthorizationHandler;
 import com.real_estate.demo.service.AccountsPrincipalDetailService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -65,8 +67,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         JwtAuthenticationFilter authenticationFilter = new JwtAuthenticationFilter(authenticationManager());
         try {
             authenticationFilter.setFilterProcessesUrl("/api/login");
-            //authenticationFilter.setAuthenticationSuccessHandler(new CustomAuthorizationHandler());
-            //authenticationFilter.setAuthenticationFailureHandler(new CustomAuthenticationFailureHandler());
+            authenticationFilter.setAuthenticationSuccessHandler(new CustomAuthorizationHandler());
+            authenticationFilter.setAuthenticationFailureHandler(new CustomAuthenticationFailureHandler());
         } catch (Exception e) {
             e.printStackTrace();
         }
